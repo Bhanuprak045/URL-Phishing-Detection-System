@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; background-color: #f0f0dc; }
+        .container { margin-top: 50px; }
+        table { width: 80%; margin: auto; border-collapse: collapse; background-color: white; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+        th { background-color: #4a90e2; color: white; }
+        .incorrect { color: red; font-weight: bold; } /* Styling for incorrect URLs */
+        .btn { display: inline-block; padding: 10px; background-color: #4a90e2; color: white; text-decoration: none; margin: 10px; border-radius: 5px; }
+        .btn:hover { background-color: #357abd; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Prediction Results</h2>
+        <table>
+            <tr>
+                <th>URL</th>
+                <th>Prediction</th>
+            </tr>
+            {% for url, result in results %}
+                <tr>
+                    <td>{{ url }}</td>
+                    <td>{{ result }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a class="btn" href="{{ url_for('home') }}">Go Back</a>
+    </div>
+</body>
+</html>

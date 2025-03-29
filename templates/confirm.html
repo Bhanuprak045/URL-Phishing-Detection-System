@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; background-color: #f0f0dc; }
+        .container { margin-top: 50px; }
+        .btn { display: inline-block; padding: 10px; background-color: #4CAF50; color: white; text-decoration: none; margin: 10px; border-radius: 5px; }
+        .btn:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>URLs Received</h2>
+        <ul>
+            {% for url in urls %}
+                <li>{{ url }}</li>
+            {% endfor %}
+        </ul>
+
+        {% if invalid_urls %}
+            <h2>Invalid URLs</h2>
+            <ul>
+                {% for url in invalid_urls %}
+                    <li style="color: red;">{{ url }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <a class="btn" href="{{ url_for('home') }}">Go Back</a>
+    </div>
+</body>
+</html>

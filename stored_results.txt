@@ -1,0 +1,9 @@
+http://tinyurl.com/ptzp6kv - Malicious
+jdbfhsd.com - Benign
+http://verificadivisa.com/ - Malicious
+https://leetcode.com/u/Rajmani_pandey/ - Malicious
+https://chatgpt.com/ - Benign
+https://github.com/ - Benign
+https://www.trade.gov.tw/world/listarea.aspx?code=7020&nodeid=977&areaid=4&country=b6457sq6kw_6jit - Benign
+ww.google.com - Benign
+https://google.com - Benign

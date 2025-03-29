@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Phishing Detector - Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0dc;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background: white;
+            width: 40%;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            color: #333;
+        }
+        .btn {
+            padding: 12px 20px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 10px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #357abd;
+        }
+        .input-box {
+            margin-top: 20px;
+            display: none;
+            text-align: center;
+        }
+        input[type="text"], input[type="file"] {
+            padding: 10px;
+            width: 90%;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .submit-btn {
+            width: 100%;
+            margin-top: 15px;
+            background-color: #28a745;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .valid {
+            color: green;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .back-btn {
+            display: block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+    <script>
+        function showInput(type) {
+            document.getElementById('single-url').style.display = 'none';
+            document.getElementById('file-upload').style.display = 'none';
+            
+            if (type === 'url') {
+                document.getElementById('single-url').style.display = 'block';
+            } else {
+                document.getElementById('file-upload').style.display = 'block';
+            }
+        }
+
+        function validateURL() {
+            let urlInput = document.getElementById("urlInput");
+            let feedback = document.getElementById("urlFeedback");
+
+            let urlPattern = /^(https?:\/\/)([a-zA-Z0-9.-]+)(\.[a-zA-Z]{2,})(:\d+)?(\/.*)?$/;
+
+            if (urlPattern.test(urlInput.value)) {
+                feedback.textContent = "✔ Valid URL";
+                feedback.className = "valid";
+            } else {
+                feedback.textContent = "✖ Invalid URL";
+                feedback.className = "error";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>URL Phishing Detector</h2>
+        <p>Select an input method:</p>
+
+        <button class="btn" onclick="showInput('url')">Enter Single URL</button>
+        <button class="btn" onclick="showInput('file')">Upload File</button>
+
+        <form method="POST" enctype="multipart/form-data">
+            <div id="single-url" class="input-box">
+                <input type="text" id="urlInput" name="url" placeholder="Enter a URL" oninput="validateURL()">
+                <p id="urlFeedback"></p>
+            </div>
+
+            <div id="file-upload" class="input-box">
+                <input type="file" name="file" accept=".txt,.csv">
+            </div>
+
+            <button class="btn submit-btn" type="submit">Submit</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <a class="back-btn" href="{{ url_for('home') }}">⬅ Go Back</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Menu</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; background-color: #f0f0dc; }
+        .container { margin-top: 50px; }
+        h1 { font-size: 24px; }
+        .btn { display: block; width: 300px; padding: 10px; margin: 10px auto; background-color: #4a90e2; color: white; text-decoration: none; text-align: center; border-radius: 5px; }
+        .btn:hover { background-color: #357abd; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DEPARTMENT OF INFORMATION TECHNOLOGY</h1>
+        <h2>NATIONAL INSTITUTE OF TECHNOLOGY KARNATAKA, SURATHKAL</h2>
+        <h3>Information Assurance and Security (IT352) Course Project</h3>
+        <p><strong>Title:</strong> Deep Learning Based Phishing Detection System</p>
+        <p><b>Carried out by</b><br>Bhanu Prakash Vanama (221IT077)<br>Rajmani Pandey (221IT053)<br>During Academic Session January – April 2025</p>
+        <a class="btn" href="{{ url_for('input_url') }}">Press here to Enter Input</a>
+        <a class="btn" href="{{ url_for('predict') }}">Press here to Display Output</a>
+        <a class="btn" href="{{ url_for('store_output') }}" download="predictions.csv">Press here to Store Output</a>
+    </div>
+</body>
+</html>
