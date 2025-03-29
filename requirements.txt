@@ -1,6 +1,6 @@
-tensorflow==2.5.0
-keras==2.5.0
-numpy==1.21.0
-pandas==1.3.0
-flask==2.0.1
+tensorflow
+keras
+numpy
+pandas
+flask
 gunicorn
